@@ -19,7 +19,7 @@ import (
 	"github.com/lmittmann/tint"
 )
 
-const Version = "v1.0.0-next"
+const Version = "v1.0.0"
 
 const help = `S3 Upload
 
