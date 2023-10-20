@@ -19,7 +19,7 @@ import (
 	"github.com/lmittmann/tint"
 )
 
-const Version = "v1.0.0"
+const Version = "v1.0.1"
 
 const help = `S3 Upload
 
@@ -105,6 +105,9 @@ func main() {
 	if err != nil {
 		slog.Error("failed open", "filename", *fileFlag, "err", err)
 		os.Exit(ExitSystemFailure)
+	}
+	if endpoint == nil || strings.TrimSpace(*endpoint) == "" {
+		endpoint = nil
 	}
 
 	err = s3Upload(cfg, *keyFlag, *bucketFlag, endpoint, f)
